@@ -11,13 +11,14 @@ import Account from "./pages/Account";
 import Login from "./pages/Login";
 import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 60 * 1000,
-    },
-  },
-});
+const queryClient = new QueryClient();
+//   {
+//   defaultOptions: {
+//     queries: {
+//       staleTime: 2 * 1000,
+//     },
+//   },
+// }
 function App() {
   return (
     <QueryClientProvider client={queryClient}>

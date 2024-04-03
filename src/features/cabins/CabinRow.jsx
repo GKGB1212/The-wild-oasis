@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { useMutation } from "@tanstack/react-query";
+import { formatCurrency } from "../../utils/helpers";
+import Button from "../../ui/Button";
 
 const TableRow = styled.div`
   display: grid;
@@ -38,3 +41,17 @@ const Discount = styled.div`
   font-weight: 500;
   color: var(--color-green-700);
 `;
+
+export default function CabinRow({ cabin }) {
+  const { image, name, maxCapacity, regularPrice, discount } = cabin;
+  return (
+    <TableRow>
+      <Img src={image} />
+      <Cabin>{name}</Cabin>
+      <div>Fits up to {maxCapacity} guests</div>
+      <Price>{formatCurrency(regularPrice)}</Price>
+      <Discount>{formatCurrency(discount)}</Discount>
+      <Button>Delete</Button>
+    </TableRow>
+  );
+}
