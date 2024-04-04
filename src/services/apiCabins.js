@@ -15,3 +15,11 @@ export async function deleteCabinByID(id) {
     throw new Error("cannot delete this cabin");
   }
 }
+export async function createCabin(cabin) {
+  const { data, error } = await supabase.from("cabins").insert([cabin]);
+  if (error) {
+    console.log("lỗi", error);
+    throw new Error("cannot create cabin");
+  }
+  return data;
+}
