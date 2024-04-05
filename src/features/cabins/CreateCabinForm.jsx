@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
@@ -28,6 +27,7 @@ function CreateCabinForm() {
     },
   });
   const onSubmit = (data) => {
+    console.log("data", data);
     mutate(data);
   };
   const onError = (error) => {
@@ -73,9 +73,9 @@ function CreateCabinForm() {
         />
       </FormRow>
 
-      <FormRow label="Cabin name" error={errors?.discount?.message}>
+      <FormRow label="Discount" error={errors?.discount?.message}>
         <Input
-          type="number"
+          type="text"
           id="discount"
           defaultValue={0}
           {...register("discount", {
@@ -87,9 +87,9 @@ function CreateCabinForm() {
         />
       </FormRow>
 
-      <FormRow label="Cabin name" error={errors?.description?.message}>
+      <FormRow label="Description" error={errors?.description?.message}>
         <Textarea
-          type="number"
+          type="text"
           id="description"
           defaultValue=""
           {...register("description")}
@@ -97,7 +97,12 @@ function CreateCabinForm() {
       </FormRow>
 
       <FormRow label="Cabin photo">
-        <FileInput id="image" accept="image/*" />
+        <FileInput
+          type="file"
+          id="images"
+          {...register("images")}
+          accept="image/*"
+        />
       </FormRow>
 
       <FormRow>

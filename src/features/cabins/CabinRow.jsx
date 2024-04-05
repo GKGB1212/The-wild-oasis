@@ -60,7 +60,7 @@ export default function CabinRow({ cabin }) {
   });
   const {
     id: cabinID,
-    image,
+    images,
     name,
     maxCapacity,
     regularPrice,
@@ -68,7 +68,7 @@ export default function CabinRow({ cabin }) {
   } = cabin;
   return (
     <TableRow>
-      <Img src={image} />
+      <Img src={images} />
       <Cabin>{name}</Cabin>
       <div>Fits up to {maxCapacity} guests</div>
       <Price>{formatCurrency(regularPrice)}</Price>
